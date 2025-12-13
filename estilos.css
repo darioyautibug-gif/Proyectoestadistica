@@ -1,0 +1,780 @@
+/* ================= GLOBAL ================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #333;
+}
+
+.oculto {
+    display: none !important;
+}
+/* =========================================
+   NUEVO HEADER DINÁMICO (Copia y reemplaza)
+   ========================================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 25px 0;      /* Espaciado grande al principio */
+    background: transparent; /* Transparente para ver el video */
+    transition: all 0.4s ease; /* Animación suave al cambiar */
+}
+
+/* CLASE ACTIVADA POR JS AL BAJAR (SCROLL) */
+header.nav-scroll {
+    background: #2a7173;  /* Color Sólido (Tu verde) */
+    padding: 10px 0;      /* Se hace más delgado */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra */
+}
+
+/* CONTENEDOR DEL MENÚ */
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px; /* Espacio entre botones */
+}
+
+/* BOTONES ESTILO CÁPSULA (CRISTAL) */
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 10px 20px;
+    
+    /* Efecto Cristal */
+    background: rgba(255, 255, 255, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px; /* Bordes muy redondos */
+    backdrop-filter: blur(5px); /* Borroso detrás del botón */
+    
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* EFECTO AL PASAR EL MOUSE */
+nav a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.05); /* Crece un poquito */
+    box-shadow: 0 0 10px rgba(255,255,255,0.2);
+}
+
+/* BOTÓN ACTIVO (Página actual) */
+nav a.activo {
+    background: rgba(255, 255, 255, 0.9);
+    color: #2a7173; /* Letra verde */
+    font-weight: bold;
+}
+/* ================= VIDEO BANNERS (GLOBAL) ================= */
+
+/* Usamos esta clase para el Inicio y para Descriptiva */
+#banner-video, 
+.banner-video-general {
+    position: relative;
+    height: 100vh; /* Ocupa toda la pantalla */
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0;
+}
+
+/* Estilo para la etiqueta video dentro de cualquier banner */
+#banner-video video, 
+.banner-video-general video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Ajuste para el contenido blanco que va DEBAJO del video */
+.seccion-interna-contenido {
+    background: white;
+    padding: 60px 20px;
+    text-align: center;
+    min-height: 50vh;
+}
+/* Capa oscura para que el texto resalte */
+.capa-oscura {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Oscurece un poco el video */
+    z-index: 0;
+}
+
+.titulo-video h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    z-index: 1;
+    position: relative;
+    text-align: center;
+}
+
+/* ================= SECCIÓN PLANTEAMIENTO (Estilo Imagen 1 y 2) ================= */
+.contenedor {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 60px 0;
+}
+
+.contenedor-sobre-nosotros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px; /* Espacio entre imagen y texto */
+    flex-wrap: wrap; /* Para móviles */
+}
+
+.imagen-about-us {
+    width: 40%;
+    max-width: 400px;
+    object-fit: contain;
+}
+
+.contenido-textos {
+    width: 50%;
+}
+
+.contenido-textos h3 {
+    margin-bottom: 15px;
+    font-size: 22px;
+    color: #000;
+    display: flex;
+    align-items: center;
+}
+
+/* Los círculos de los números */
+.contenido-textos h3 span {
+    background: #006064; /* Color petróleo oscuro */
+    color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    font-size: 16px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+.contenido-textos p {
+    margin-bottom: 20px;
+    font-weight: 300;
+    text-align: justify;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Botón Dataset */
+.dataset-box {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #4e73df; /* Azul brillante como en la foto */
+    color: white;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.dataset-box:hover {
+    transform: translateY(-3px);
+}
+
+/* ================= SECCIÓN MAPA (Estilo Imagen 3) ================= */
+.mapa-ubicacion {
+    background: #f0f2f2; /* Fondo gris muy claro */
+    padding: 80px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.lado-izquierdo {
+    width: 40%;
+}
+titulo-mapa {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 60px;       /* Grande */
+    font-weight: 800;      /* Muy negrita */
+    
+    /* AQUÍ ESTÁ LA SOLUCIÓN: */
+    color: #4DB6AC !important; /* Color verde azulado forzado */
+    
+    margin-bottom: 20px;
+    line-height: 1.1;
+    
+    /* Mantenemos la animación de entrada */
+    opacity: 0; 
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+.btn-mapa {
+    display: inline-block;
+    background: #00bcd4; /* Cyan vibrante */
+    color: #000;
+    font-weight: bold;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: background 0.3s;
+}
+
+.btn-mapa:hover {
+    background: #00acc1;
+    color: #fff;
+}
+
+.lado-derecho {
+    width: 50%;
+}
+
+.lado-derecho img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    background: white;
+    padding: 10px; /* Simula el marco blanco */
+}
+
+/* ================= SECCIONES INTERNAS (SPA) ================= */
+.seccion-interna {
+    padding-top: 150px; /* Para no chocar con el menú */
+    min-height: 100vh;
+    background: #fff;
+    text-align: center;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsivo para móviles */
+@media screen and (max-width: 800px) {
+    nav { flex-wrap: wrap; }
+    .contenedor-sobre-nosotros, .mapa-ubicacion {
+        flex-direction: column;
+        text-align: center;
+    }
+    .imagen-about-us, .contenido-textos, .lado-izquierdo, .lado-derecho {
+        width: 100%;
+    }
+    .titulo-mapa { font-size: 40px; }
+    .lado-derecho { margin-top: 30px; }
+}
+/* ================= EFECTO DE ENTRADA (MAPA) ================= */
+
+/* Estado inicial: Invisible y desplazado hacia abajo */
+.efecto-entrada {
+    opacity: 0;
+    transform: translateY(50px); /* Empieza 50px más abajo */
+    transition: opacity 1s ease-out, transform 1s ease-out; /* Duración de 1 segundo */
+    will-change: opacity, transform; /* Optimización para el navegador */
+}
+
+/* Estado final: Se activa cuando JS añade la clase 'visible' */
+.efecto-entrada.visible {
+    opacity: 1;
+    transform: translateY(0); /* Vuelve a su posición original */
+}
+/* Define la animación de entrada */
+@keyframes slideInUp {
+    from {
+        opacity: 0; /* Empieza invisible */
+        transform: translateY(50px); /* Empieza 50px más abajo */
+    }
+    to {
+        opacity: 1; /* Termina visible */
+        transform: translateY(0); /* Termina en su posición original */
+    }
+}
+
+/* Aplica el estilo y la animación al título */
+.titulo-mapa {
+    font-family: 'Open Sans', sans-serif; /* Usa la fuente Open Sans */
+    font-size: 80px; /* Tamaño de letra grande, similar a las imágenes */
+    font-weight: 800; /* Negrita */
+    color: #4DB6AC !important;
+    margin-bottom: 20px; /* Espacio debajo del título */
+    
+    /* Configuración de la animación */
+    animation-name: slideInUp; /* Nombre de la animación definida arriba */
+    animation-duration: 1s; /* Duración de 1 segundo */
+    animation-timing-function: ease-out; /* Comienza rápido y termina lento */
+    animation-fill-mode: both; /* Mantiene el estado final de la animación */
+}
+/* ==============================================
+   ESTILOS ESPECÍFICOS: ESTADÍSTICA DESCRIPTIVA
+   ============================================== */
+
+/* Layout Izquierda/Derecha (Conceptos) */
+.contenedor-flex-descriptiva {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 0;
+    background: #f8f8f8;
+    flex-wrap: wrap; /* Para móviles */
+}
+
+.izquierda-desc {
+    flex: 1;
+    max-width: 600px;
+}
+
+.derecha-desc {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    /* Asegúrate de que la ruta de la imagen sea correcta */
+    background-image: url('../img/Arenas-petroliferas-en-Canada.jpg'); 
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    border: 5px solid white;
+}
+
+/* Cajas de Opciones (Acordeón) */
+.opcion-desc {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 15px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
+    font-weight: bold;
+    color: #333;
+    transition: all 0.3s ease;
+    border-left: 5px solid #2a7173;
+}
+
+.opcion-desc:hover {
+    background: #2a7173;
+    color: white;
+    transform: translateX(10px);
+}
+
+.info-desc {
+    display: none; /* Oculto por defecto */
+    padding: 20px;
+    background: #fff;
+    border-radius: 0 0 10px 10px;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    border: 1px solid #eee;
+    animation: fadeIn 0.4s;
+}
+
+.info-desc.mostrar {
+    display: block;
+}
+
+.simbolico {
+    background: #f4f4f4;
+    padding: 10px;
+    border-left: 4px solid #444;
+    font-family: monospace;
+    margin-top: 10px;
+    color: #333;
+}
+
+/* ==============================================
+   ESTILOS TABLA DE VARIABLES
+   ============================================== */
+
+.seccion-tabla {
+    padding-bottom: 80px;
+    background: #fff;
+    text-align: center;
+}
+
+.variables-titulo {
+    font-size: 35px;
+    color: #2a7173;
+    margin-bottom: 30px;
+    font-weight: 800;
+}
+
+/* Leyenda de colores */
+.leyenda-tabla {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    display: inline-flex; /* Para que se ajuste al contenido */
+}
+
+.item-leyenda {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #555;
+}
+
+.color {
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    margin-right: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Colores de leyenda */
+.color1 { background: #ccffff; }
+.color2 { background: #fff9b3; }
+.color3 { background: lightcoral; }
+.color4 { background: #b3ffda; }
+
+/* Buscador y Filtros */
+#buscador-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+#filtroTexto, #filtroTipo {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#filtroTexto { width: 300px; }
+
+/* La Tabla en sí */
+#tabla-contenedor {
+    width: 95%;
+    max-width: 1400px;
+    margin: auto;
+    overflow-x: auto; /* Scroll horizontal si es muy ancha */
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    max-height: 600px; /* Scroll vertical */
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    min-width: 1000px; /* Asegura ancho mínimo */
+}
+
+th {
+    background: #2a7173; /* Tu color principal */
+    color: white;
+    padding: 15px;
+    position: sticky;
+    top: 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    color: #000;
+}
+
+/* COLORES DE LAS FILAS (Lógica Nth-child) */
+/* Nota: Ajusta los números si agregas o quitas filas */
+
+/* 1. Celestes (Primeras 15 filas) */
+#tablaVariables tbody tr:nth-child(-n+15) { 
+    background-color: #ccffff; 
+}
+
+/* 2. Amarillos (Siguientes 11 filas aprox) */
+#tablaVariables tbody tr:nth-child(n+16):nth-child(-n+26) {
+    background-color: #fff9b3;
+}
+
+/* 3. Coral (Siguientes 12 filas aprox) */
+#tablaVariables tbody tr:nth-child(n+27):nth-child(-n+38) {
+    background-color: lightcoral;
+}
+
+/* 4. Verdes (El resto) */
+#tablaVariables tbody tr:nth-child(n+39) {
+    background-color: #b3ffda;
+}
+
+/* Hover Global */
+#tablaVariables tbody tr:hover td {
+    background-color: #ffa500 !important;
+    color: white !important;
+    cursor: default;
+}
+
+@media (max-width: 800px) {
+    .contenedor-flex-descriptiva { flex-direction: column; align-items: center; }
+    .derecha-desc { width: 200px; height: 200px; }
+    #filtroTexto { width: 100%; }
+}
+/* ==============================================
+   GALERÍA VARIABLES "DAME BONITO"
+   ============================================== */
+
+.seccion-galeria {
+    padding: 60px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, #ffffff 0%, #f4f8f8 100%); /* Fondo degradado sutil */
+}
+
+.titulo-galeria {
+    font-size: 42px;
+    color: #2a7173; /* Tu verde oscuro */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.mt-grande { margin-top: 80px; } /* Separador para el segundo bloque */
+
+.grupo-variables {
+    margin-bottom: 40px;
+}
+
+.subtitulo-galeria {
+    font-size: 26px;
+    color: #555;
+    font-weight: 600;
+    margin-bottom: 25px;
+    display: inline-block;
+    border-bottom: 3px solid #4DB6AC; /* Subrayado color menta */
+    padding-bottom: 5px;
+}
+
+/* --- LA REJILLA (GRID) --- */
+.grid-cards {
+    display: grid;
+    /* Esto crea columnas automáticas de mínimo 240px */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 30px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+/* --- LA TARJETA (CARD) --- */
+.card-variable {
+    position: relative;
+    height: 220px; /* Altura de la tarjeta */
+    border-radius: 20px; /* Bordes muy redondos como tu imagen */
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Sombra suave normal */
+    background: #000; /* Fondo negro por si falla la imagen */
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición elástica */
+    border: 4px solid #fff; /* Marco blanco tipo foto */
+}
+
+/* Imagen de fondo */
+.card-img {
+    width: 100%;
+    height: 100%;
+}
+
+.card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease; /* Zoom lento de la imagen */
+}
+
+/* Etiqueta de Texto (Abajo) */
+.card-texto {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Negro casi sólido */
+    color: #fff;
+    padding: 12px;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    backdrop-filter: blur(4px); /* Efecto borroso detrás */
+    border-top: 1px solid rgba(255,255,255,0.2);
+    transform: translateY(0);
+    transition: background 0.3s;
+}
+
+/* --- EFECTO PULSO Y GLOW (HOVER) --- */
+.card-variable:hover {
+    transform: translateY(-10px) scale(1.02); /* Sube y crece un pelín */
+    
+    /* El Glow Mágico: Sombra color menta brillante */
+    box-shadow: 0 15px 35px rgba(77, 182, 172, 0.5); 
+    border-color: #4DB6AC; /* El borde blanco se vuelve menta */
+}
+
+.card-variable:hover .card-img img {
+    transform: scale(1.15); /* Zoom a la foto */
+    filter: brightness(1.1); /* Un poco más de brillo */
+}
+
+.card-variable:hover .card-texto {
+    background: #2a7173; /* La etiqueta cambia a tu verde corporativo */
+}
+/* ================= EFECTO DE ENTRADA GLOBAL ================= */
+.efecto-entrada {
+    opacity: 0;
+    transform: translateY(50px); /* Empieza más abajo */
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.efecto-entrada.visible {
+    opacity: 1;
+    transform: translateY(0); /* Sube a su sitio */
+}
+/* ================= TÍTULOS DE VIDEO (ANIMADOS) ================= */
+.titulo-video h1 {
+    font-size: 50px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    z-index: 1;
+    position: relative;
+    text-align: center;
+
+    /* ANIMACIÓN AUTOMÁTICA (Sin esperar scroll) */
+    /* Usa la misma animación 'slideInUp' que creamos para el mapa */
+    animation: slideInUp 1s ease-out both;
+}
+
+/* Aseguramos que la animación exista por si acaso */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ==============================================
+   ESTILOS DEL FOOTER (PREMIUM)
+   ============================================== */
+
+footer {
+    background: #2c2c2c; /* Gris oscuro elegante */
+    padding: 60px 0 30px 0;
+    margin: auto;
+    overflow: hidden;
+    color: #fff;
+    position: relative;
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1); /* Sombra superior sutil */
+}
+
+.contenedor-footer {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    justify-content: space-evenly; /* Distribuye el espacio equitativamente */
+    margin: auto;
+    padding-bottom: 50px;
+    border-bottom: 1px solid #555; /* Línea separadora sutil */
+    flex-wrap: wrap; /* Adaptable a móviles */
+}
+
+.content-foo {
+    text-align: center;
+    margin-bottom: 20px;
+    min-width: 200px; /* Ancho mínimo para que no se aplasten */
+}
+
+.content-foo h4 {
+    color: #fff;
+    border-bottom: 3px solid #4DB6AC; /* Tu color verde azulado */
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+    display: inline-block; /* Para que la línea mida lo mismo que el texto */
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.content-foo p {
+    color: #ccc; /* Texto gris claro para no cansar la vista */
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+/* --- ÍCONOS DE REDES SOCIALES --- */
+.iconos-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.icono-red img {
+    width: 35px;
+    height: 35px;
+    filter: invert(1); /* Vuelve blancos los iconos si son negros originalmente */
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.icono-red img:hover {
+    transform: translateY(-5px) scale(1.1); /* Sube y crece */
+    filter: invert(0) sepia(1) saturate(5) hue-rotate(120deg); /* Truco para volverlo verde al pasar el mouse (opcional) */
+    opacity: 1;
+}
+
+/* --- COPYRIGHT FINAL --- */
+.titulo-final {
+    text-align: center;
+    font-size: 14px;
+    margin: 20px 0 0 0;
+    color: #9e9797;
+    font-weight: 400;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 600px) {
+    .contenedor-footer {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .content-foo {
+        margin-bottom: 40px;
+    }
+}
