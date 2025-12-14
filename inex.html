@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto de Estadística</title>
+    <link rel="shortcut icon" href="img/icons8-barril-de-petróleo-32.png">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="main-header">
+        <nav id="nav-principal">
+            <a href="#" onclick="cambiarPestana('vista-inicio'); return false;" class="menu-link activo">Inicio</a>
+            <a href="#" onclick="cambiarPestana('descriptiva'); return false;" class="menu-link">Estadística Descriptiva</a>
+            <a href="#" onclick="cambiarPestana('inferencial'); return false;" class="menu-link">Estadística Inferencial</a>
+            <a href="#" onclick="cambiarPestana('machine'); return false;" class="menu-link">Machine Learning</a>
+        </nav>
+    </header>
+
+    <main>
+        
+        <div id="vista-inicio" class="vista-seccion">
+            
+            <section id="banner-video">
+                <video id="videoPrincipal" muted autoplay loop>
+                    <source src="video/606824-cities-city-3840x2160_RGiVdQ2Y.mp4" type="video/mp4">
+                </video>
+                <div class="titulo-video">
+                    <h1>Proyecto de Estadística</h1>
+                </div>
+            </section>
+
+            <section class="contenedor sobre-nosotros">
+                <div class="contenedor-sobre-nosotros">
+                    <img class="imagen-about-us" src="img/oil-price_6428610.png" alt="imagen-about-us">
+                    <div class="contenido-textos">
+                        <h3><span>1</span>Planteamiento del Problema</h3>
+                        <p>Aplicar herramientas estadísticas y de Machine Learning para analizar actividades de exploración y/o explotación de hidrocarburos en Brasil.</p>
+                        
+                        <a href="https://www.kaggle.com/datasets/dtommasini/oil-gas-wells-brazil" target="_blank" class="dataset-box">Dataset</a>
+
+                        <h3><span>2</span>Objetivo General</h3>
+                        <p>Aplicar herramientas estadísticas y de Machine Learning para analizar actividades de exploración...</p>
+
+                        <h3><span>3</span>Objetivos Específicos</h3>
+                        <p><strong>1.</strong> Conocer la situación actual...</p>
+                        <p><strong>2.</strong> Emplear un modelo de probabilidad...</p>
+                        <p><strong>3.</strong> Deducir relaciones entre variables...</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="mapa" class="mapa-ubicacion">
+                <div class="lado-izquierdo">
+                    <h1 class="efecto-entrada">Mapa de Ubicación</h1>
+                    <a href="https://drive.google.com/file/d/1uCnNk0kce1kmHP1u9RcKJM4tA_cr8r5K/view?usp=sharing" class="btn-mapa" target="_blank">
+                        MAPA DE UBICACIÓN EN PDF
+                    </a>
+                </div>
+                <div class="lado-derecho">
+                    <img src="img/WhatsApp Image 2025-12-11 at 2.34.45 PM.jpeg" alt="Mapa de Ubicación">
+                </div>
+            </section>
+        </div>
+        <section id="descriptiva" class="vista-seccion oculto">
+            <div class="contenedor-pagina-interna">
+                <h1>Estadística Descriptiva</h1>
+                <p>Aquí cargarás tus gráficos y tablas.</p>
+                </div>
+        </section>
+
+        <section id="inferencial" class="vista-seccion oculto">
+            <div class="contenedor-pagina-interna">
+                <h1>Estadística Inferencial</h1>
+                <p>Aquí cargarás tus pruebas de hipótesis.</p>
+            </div>
+        </section>
+
+        <section id="machine" class="vista-seccion oculto">
+            <div class="contenedor-pagina-interna">
+                <h1>Machine Learning</h1>
+                <p>Aquí cargarás tus modelos predictivos.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/navegacion.js"></script>
+    <script src="js/observer.js"></script> 
+</body>
+</html>
