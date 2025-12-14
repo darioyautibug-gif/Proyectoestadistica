@@ -5,57 +5,56 @@ function navegar(seccion, boton) {
     seccionActual = seccion; 
     
     // 1. CAMBIAR EL BOTÓN ACTIVO
+    // Quitamos la clase 'activo' de todos los enlaces (incluyendo los del dropdown)
     if (boton) {
-        document.querySelectorAll('.menu-link').forEach(link => link.classList.remove('activo'));
+        document.querySelectorAll('.menu-link, .dropdown-content a').forEach(link => link.classList.remove('activo'));
         boton.classList.add('activo');
     }
 
-    // 2. REFERENCIAS A LAS VISTAS
-    const inicio = document.getElementById('vista-inicio');
-    const desc = document.getElementById('vista-descriptiva');
-    const inf = document.getElementById('vista-inferencial');
-    const mach = document.getElementById('vista-machine');
-    
-    // 3. REFERENCIAS A LOS VIDEOS
+    // 2. REFERENCIAS A VIDEOS Y HEADER
     const vidInicio = document.getElementById('videoPrincipal');
-    const vidDesc = document.getElementById('videoDescriptiva'); // El nuevo video
-
-    // 4. HEADER
+    const vidDesc = document.getElementById('videoDescriptiva');
     const header = document.getElementById('main-header');
 
-    // 5. OCULTAR TODO Y PAUSAR TODO
-    [inicio, desc, inf, mach].forEach(el => { if(el) el.classList.add('oculto'); });
+    // 3. OCULTAR TODAS LAS SECCIONES (ACTUALIZADO)
+    // Buscamos todas las secciones por sus clases para asegurar que ocultamos
+    // las nuevas (herramientas, conclusiones, nosotros) y las viejas.
+    const todasLasSecciones = document.querySelectorAll('.vista-seccion, .seccion-interna');
+    todasLasSecciones.forEach(el => {
+        el.classList.add('oculto');
+    });
     
+    // 4. PAUSAR VIDEOS (Para ahorrar recursos)
     if(vidInicio) vidInicio.pause();
     if(vidDesc) vidDesc.pause();
 
+    // 5. MOSTRAR LA SECCIÓN ELEGIDA
+    // Construimos el ID dinámicamente: 'vista-inicio', 'vista-herramientas', etc.
+    const seccionDestino = document.getElementById('vista-' + seccion);
+    if (seccionDestino) {
+        seccionDestino.classList.remove('oculto');
+    } else {
+        console.error("No se encontró la sección: vista-" + seccion);
+    }
 
-    // 6. LÓGICA DE CADA SECCIÓN
+    // 6. LÓGICA DE COMPORTAMIENTO (VIDEOS Y HEADER)
     if (seccion === 'inicio') {
         // --- ESTAMOS EN INICIO ---
-        if(inicio) inicio.classList.remove('oculto');
-        if(vidInicio) vidInicio.play(); // Play video 1
-        
-        // Header transparente al principio
-        checkScroll(); 
+        if(vidInicio) vidInicio.play(); 
+        checkScroll(); // Verifica si debe ser transparente o sólido
 
     } else if (seccion === 'descriptiva') {
         // --- ESTAMOS EN DESCRIPTIVA ---
-        if(desc) desc.classList.remove('oculto');
-        if(vidDesc) vidDesc.play(); // Play video 2
-        
-        // Aquí también queremos el efecto transparente porque hay video
-        checkScroll();
+        if(vidDesc) vidDesc.play(); 
+        checkScroll(); // Verifica si debe ser transparente o sólido
         
     } else {
-        // --- OTRAS PÁGINAS (SIN VIDEO) ---
-        const elem = document.getElementById('vista-' + seccion);
-        if(elem) elem.classList.remove('oculto');
-        
-        // Menú siempre sólido aquí
+        // --- OTRAS PÁGINAS (Inferencial, Machine, Herramientas, Conclusiones, Nosotros) ---
+        // En estas secciones no hay video de fondo, así que forzamos el menú sólido
         if(header) header.classList.add("nav-scroll");
     }
     
+    // 7. SCROLL AL INICIO SUAVE
     window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -70,7 +69,7 @@ function checkScroll() {
     }
 }
 
-// Evento scroll (funciona para Inicio y Descriptiva)
+// Evento scroll (Solo activo para secciones con Video Banner)
 window.addEventListener("scroll", function() {
     // Solo aplicamos el efecto transparente/sólido si estamos en una sección con video
     if (seccionActual === 'inicio' || seccionActual === 'descriptiva') {
@@ -96,6 +95,10 @@ function filtrarTabla() {
     const texto = document.getElementById('filtroTexto').value.toLowerCase();
     const tipo = document.getElementById('filtroTipo').value.toLowerCase();
     const tabla = document.getElementById('tablaVariables');
+    
+    // Verificamos que la tabla exista para evitar errores en otras pestañas
+    if (!tabla) return;
+
     const filas = tabla.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
 
     for (let i = 0; i < filas.length; i++) {
@@ -118,6 +121,8 @@ function filtrarTabla() {
 // 3. Ordenar Tabla (Click en encabezado)
 function ordenarTabla(n) {
     const tabla = document.getElementById("tablaVariables");
+    if (!tabla) return;
+
     let rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
     switching = true;
     dir = "asc"; 

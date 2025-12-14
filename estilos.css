@@ -126,6 +126,17 @@ nav a.activo {
     /* ANIMACIÓN AUTOMÁTICA (Entrada directa) */
     animation: slideInUp 1s ease-out both;
 }
+.titulo-video h2{
+    font-size: 35px;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+    z-index: 1;
+    position: relative;
+    text-align: center;
+
+    /* ANIMACIÓN AUTOMÁTICA (Entrada directa) */
+    animation: slideInUp 1s ease-out both;
+}
 
 /* ================= SECCIÓN PLANTEAMIENTO ================= */
 .contenedor {
@@ -825,4 +836,129 @@ footer {
 .btn-modal:hover {
     background-color: #2a7173; /* Se oscurece al pasar el mouse */
     transform: translateY(-2px);
+}
+/* ================= DROPDOWN MENU (Estilo Premium) ================= */
+
+/* Contenedor principal (para que el menú flote relativo a esto) */
+.dropdown-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilo específico para el botón "Más" */
+.btn-mas {
+    cursor: pointer;
+    /* Hereda el estilo de tus otros botones */
+}
+
+/* El menú oculto (Caja blanca) */
+.dropdown-content {
+    display: none; /* Oculto por defecto */
+    position: absolute;
+    top: 100%; /* Justo debajo del botón */
+    left: 50%;
+    transform: translateX(-50%); /* Centrado */
+    background-color: #ffffff;
+    min-width: 220px; /* Ancho mínimo */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Sombra elegante */
+    border-radius: 10px;
+    overflow: hidden;
+    z-index: 2000;
+    padding: 10px 0;
+    margin-top: 15px; /* Separación del botón */
+    
+    /* Animación de entrada */
+    animation: fadeInUp 0.3s ease;
+}
+
+/* Flechita decorativa arriba del menú (Triángulo) */
+.dropdown-content::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 10px 10px 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+}
+
+/* Los enlaces dentro del menú */
+.dropdown-content a {
+    color: #333 !important; /* Texto gris oscuro */
+    padding: 12px 20px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+    background: transparent !important; /* Quitamos el efecto cristal aquí */
+    border: none !important;
+    border-radius: 0 !important;
+    transition: all 0.2s;
+}
+
+/* Hover en las opciones */
+.dropdown-content a:hover {
+    background-color: #f0f8f8 !important; /* Fondo verde muy claro */
+    color: #2a7173 !important; /* Texto verde corporativo */
+    padding-left: 25px; /* Pequeño desplazamiento a la derecha */
+}
+
+/* MOSTRAR EL MENÚ AL PASAR EL MOUSE */
+.dropdown-container:hover .dropdown-content {
+    display: block;
+}
+
+/* Animación suave */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+/* ================= ESTILOS ESPECÍFICOS "SOBRE NOSOTROS" ================= */
+
+/* Usamos un nombre de clase nuevo para no dañar la sección de "Inicio" */
+.contenedor-sobre-nosotros-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;      /* Espacio entre tarjetas */
+    flex-wrap: wrap; /* Permite que bajen si no caben */
+    margin-top: 40px;
+    padding-bottom: 60px;
+}
+
+/* Ajustes específicos para las tarjetas de miembros */
+.miembro-equipo {
+    /* Forzamos que sean un poco más pequeñas para que quepan varias */
+    width: 45%; 
+    min-width: 250px; /* Ancho mínimo antes de saltar de línea */
+    max-width: 350px; /* Ancho máximo para que no se vean gigantes */
+    
+    text-align: center; /* Centramos el texto */
+    padding: 30px 20px; /* Un poco menos de padding que las otras cajas */
+    
+    /* Opcional: si quieres que tengan un color diferente en el borde superior */
+    /* border-top-color: #FFC107; (Color ámbar por ejemplo) */
+}
+
+/* Estilo para los nombres */
+.miembro-equipo h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #2a7173;
+}
+
+/* Estilo para los cargos/títulos */
+.miembro-equipo p {
+    font-size: 16px;
+    color: #666;
+    font-weight: 400;
+}
+
+/* --- RESPONSIVO PARA CELULAR --- */
+@media (max-width: 768px) {
+    /* En celulares, que ocupen el 100% del ancho para quedar una debajo de otra */
+    .miembro-equipo {
+        width: 100%;
+        max-width: 400px; /* Un poco más anchas en móvil */
+    }
 }
