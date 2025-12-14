@@ -13,26 +13,26 @@ body {
 .oculto {
     display: none !important;
 }
-/* =========================================
-   NUEVO HEADER DINÁMICO (Copia y reemplaza)
-   ========================================= */
 
+/* =========================================
+   HEADER DINÁMICO
+   ========================================= */
 header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 25px 0;      /* Espaciado grande al principio */
-    background: transparent; /* Transparente para ver el video */
-    transition: all 0.4s ease; /* Animación suave al cambiar */
+    padding: 25px 0;
+    background: transparent;
+    transition: all 0.4s ease;
 }
 
 /* CLASE ACTIVADA POR JS AL BAJAR (SCROLL) */
 header.nav-scroll {
-    background: #2a7173;  /* Color Sólido (Tu verde) */
-    padding: 10px 0;      /* Se hace más delgado */
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3); /* Sombra */
+    background: #2a7173;  /* Verde sólido */
+    padding: 10px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
 /* CONTENEDOR DEL MENÚ */
@@ -40,7 +40,7 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px; /* Espacio entre botones */
+    gap: 15px;
 }
 
 /* BOTONES ESTILO CÁPSULA (CRISTAL) */
@@ -54,33 +54,30 @@ nav a {
     /* Efecto Cristal */
     background: rgba(255, 255, 255, 0.1); 
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 30px; /* Bordes muy redondos */
-    backdrop-filter: blur(5px); /* Borroso detrás del botón */
+    border-radius: 30px;
+    backdrop-filter: blur(5px);
     
     transition: all 0.3s ease;
     cursor: pointer;
 }
 
-/* EFECTO AL PASAR EL MOUSE */
 nav a:hover {
     background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.05); /* Crece un poquito */
+    transform: scale(1.05);
     box-shadow: 0 0 10px rgba(255,255,255,0.2);
 }
 
-/* BOTÓN ACTIVO (Página actual) */
 nav a.activo {
     background: rgba(255, 255, 255, 0.9);
-    color: #2a7173; /* Letra verde */
+    color: #2a7173;
     font-weight: bold;
 }
-/* ================= VIDEO BANNERS (GLOBAL) ================= */
 
-/* Usamos esta clase para el Inicio y para Descriptiva */
+/* ================= VIDEO BANNERS (GLOBAL) ================= */
 #banner-video, 
 .banner-video-general {
     position: relative;
-    height: 100vh; /* Ocupa toda la pantalla */
+    height: 100vh;
     width: 100%;
     overflow: hidden;
     display: flex;
@@ -89,7 +86,6 @@ nav a.activo {
     margin-top: 0;
 }
 
-/* Estilo para la etiqueta video dentro de cualquier banner */
 #banner-video video, 
 .banner-video-general video {
     position: absolute;
@@ -101,24 +97,24 @@ nav a.activo {
     z-index: -1;
 }
 
-/* Ajuste para el contenido blanco que va DEBAJO del video */
 .seccion-interna-contenido {
     background: white;
     padding: 60px 20px;
     text-align: center;
     min-height: 50vh;
 }
-/* Capa oscura para que el texto resalte */
+
 .capa-oscura {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Oscurece un poco el video */
+    background: rgba(0, 0, 0, 0.3);
     z-index: 0;
 }
 
+/* ================= TÍTULOS DE VIDEO (ANIMADOS) ================= */
 .titulo-video h1 {
     font-size: 50px;
     color: white;
@@ -126,9 +122,12 @@ nav a.activo {
     z-index: 1;
     position: relative;
     text-align: center;
+
+    /* ANIMACIÓN AUTOMÁTICA (Entrada directa) */
+    animation: slideInUp 1s ease-out both;
 }
 
-/* ================= SECCIÓN PLANTEAMIENTO (Estilo Imagen 1 y 2) ================= */
+/* ================= SECCIÓN PLANTEAMIENTO ================= */
 .contenedor {
     width: 90%;
     max-width: 1200px;
@@ -140,8 +139,8 @@ nav a.activo {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 50px; /* Espacio entre imagen y texto */
-    flex-wrap: wrap; /* Para móviles */
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
 .imagen-about-us {
@@ -162,9 +161,8 @@ nav a.activo {
     align-items: center;
 }
 
-/* Los círculos de los números */
 .contenido-textos h3 span {
-    background: #006064; /* Color petróleo oscuro */
+    background: #006064;
     color: #fff;
     border-radius: 50%;
     display: inline-flex;
@@ -185,11 +183,10 @@ nav a.activo {
     color: #555;
 }
 
-/* Botón Dataset */
 .dataset-box {
     display: inline-block;
     padding: 10px 20px;
-    background: #4e73df; /* Azul brillante como en la foto */
+    background: #4e73df;
     color: white;
     border-radius: 8px;
     font-weight: 600;
@@ -203,9 +200,9 @@ nav a.activo {
     transform: translateY(-3px);
 }
 
-/* ================= SECCIÓN MAPA (Estilo Imagen 3) ================= */
+/* ================= SECCIÓN MAPA ================= */
 .mapa-ubicacion {
-    background: #f0f2f2; /* Fondo gris muy claro */
+    background: #f0f2f2;
     padding: 80px 5%;
     display: flex;
     justify-content: space-between;
@@ -216,37 +213,67 @@ nav a.activo {
 .lado-izquierdo {
     width: 40%;
 }
-titulo-mapa {
+
+/* --- TÍTULO MAPA (CORREGIDO) --- */
+.titulo-mapa {
     font-family: 'Open Sans', sans-serif;
-    font-size: 60px;       /* Grande */
-    font-weight: 800;      /* Muy negrita */
-    
-    /* AQUÍ ESTÁ LA SOLUCIÓN: */
-    color: #4DB6AC !important; /* Color verde azulado forzado */
-    
+    font-size: 60px;
+    font-weight: 800;
+    color: #4DB6AC !important;
     margin-bottom: 20px;
     line-height: 1.1;
-    
-    /* Mantenemos la animación de entrada */
+
+    /* Estado inicial: Invisible y abajo */
     opacity: 0; 
-    transform: translateY(50px);
+    transform: translateY(80px); 
+    
+    /* Configuración de la transición para el scroll */
     transition: opacity 1s ease-out, transform 1s ease-out;
 }
+
+/* Clase que agrega JS al hacer scroll */
+.titulo-mapa.visible {
+    opacity: 1;            
+    transform: translateY(0); 
+}
+
+/* --- BOTÓN PDF CON PULSO --- */
+/* 1. Definimos la animación */
+@keyframes latido {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(77, 182, 172, 0.7);
+    }
+    70% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 15px rgba(77, 182, 172, 0);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(77, 182, 172, 0);
+    }
+}
+
+/* 2. Estilos del botón */
 .btn-mapa {
     display: inline-block;
-    background: #00bcd4; /* Cyan vibrante */
-    color: #000;
+    background: #00bcd4;
+    color: #fff;
     font-weight: bold;
     padding: 15px 30px;
     text-decoration: none;
-    border-radius: 5px;
+    border-radius: 50px;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    text-transform: uppercase; /* Para que se vea en mayúsculas como en el video */
+    letter-spacing: 1px;
 }
 
+/* 3. Activamos animación al pasar el mouse */
 .btn-mapa:hover {
-    background: #00acc1;
+    background: #2a7173;
     color: #fff;
+    animation: latido 1.5s infinite;
 }
 
 .lado-derecho {
@@ -258,12 +285,12 @@ titulo-mapa {
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     background: white;
-    padding: 10px; /* Simula el marco blanco */
+    padding: 10px;
 }
 
 /* ================= SECCIONES INTERNAS (SPA) ================= */
 .seccion-interna {
-    padding-top: 150px; /* Para no chocar con el menú */
+    padding-top: 150px;
     min-height: 100vh;
     background: #fff;
     text-align: center;
@@ -275,65 +302,30 @@ titulo-mapa {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsivo para móviles */
-@media screen and (max-width: 800px) {
-    nav { flex-wrap: wrap; }
-    .contenedor-sobre-nosotros, .mapa-ubicacion {
-        flex-direction: column;
-        text-align: center;
-    }
-    .imagen-about-us, .contenido-textos, .lado-izquierdo, .lado-derecho {
-        width: 100%;
-    }
-    .titulo-mapa { font-size: 40px; }
-    .lado-derecho { margin-top: 30px; }
-}
-/* ================= EFECTO DE ENTRADA (MAPA) ================= */
-
-/* Estado inicial: Invisible y desplazado hacia abajo */
-.efecto-entrada {
-    opacity: 0;
-    transform: translateY(50px); /* Empieza 50px más abajo */
-    transition: opacity 1s ease-out, transform 1s ease-out; /* Duración de 1 segundo */
-    will-change: opacity, transform; /* Optimización para el navegador */
-}
-
-/* Estado final: Se activa cuando JS añade la clase 'visible' */
-.efecto-entrada.visible {
-    opacity: 1;
-    transform: translateY(0); /* Vuelve a su posición original */
-}
-/* Define la animación de entrada */
 @keyframes slideInUp {
     from {
-        opacity: 0; /* Empieza invisible */
-        transform: translateY(50px); /* Empieza 50px más abajo */
+        opacity: 0;
+        transform: translateY(50px);
     }
     to {
-        opacity: 1; /* Termina visible */
-        transform: translateY(0); /* Termina en su posición original */
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* Aplica el estilo y la animación al título */
-.titulo-mapa {
-    font-family: 'Open Sans', sans-serif; /* Usa la fuente Open Sans */
-    font-size: 80px; /* Tamaño de letra grande, similar a las imágenes */
-    font-weight: 800; /* Negrita */
-    color: #4DB6AC !important;
-    margin-bottom: 20px; /* Espacio debajo del título */
-    
-    /* Configuración de la animación */
-    animation-name: slideInUp; /* Nombre de la animación definida arriba */
-    animation-duration: 1s; /* Duración de 1 segundo */
-    animation-timing-function: ease-out; /* Comienza rápido y termina lento */
-    animation-fill-mode: both; /* Mantiene el estado final de la animación */
+/* ================= EFECTO DE ENTRADA GLOBAL (SCROLL) ================= */
+.efecto-entrada {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
 }
-/* ==============================================
-   ESTILOS ESPECÍFICOS: ESTADÍSTICA DESCRIPTIVA
-   ============================================== */
 
-/* Layout Izquierda/Derecha (Conceptos) */
+.efecto-entrada.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ================= ESTADÍSTICA DESCRIPTIVA ================= */
 .contenedor-flex-descriptiva {
     display: flex;
     align-items: flex-start;
@@ -341,7 +333,7 @@ titulo-mapa {
     gap: 40px;
     padding: 60px 0;
     background: #f8f8f8;
-    flex-wrap: wrap; /* Para móviles */
+    flex-wrap: wrap;
 }
 
 .izquierda-desc {
@@ -353,7 +345,7 @@ titulo-mapa {
     width: 350px;
     height: 350px;
     border-radius: 50%;
-    /* Asegúrate de que la ruta de la imagen sea correcta */
+    /* Asegúrate de que la imagen exista en tu carpeta */
     background-image: url('../img/Arenas-petroliferas-en-Canada.jpg'); 
     background-size: cover;
     background-position: center;
@@ -361,7 +353,6 @@ titulo-mapa {
     border: 5px solid white;
 }
 
-/* Cajas de Opciones (Acordeón) */
 .opcion-desc {
     background: white;
     border-radius: 10px;
@@ -382,7 +373,7 @@ titulo-mapa {
 }
 
 .info-desc {
-    display: none; /* Oculto por defecto */
+    display: none;
     padding: 20px;
     background: #fff;
     border-radius: 0 0 10px 10px;
@@ -405,10 +396,7 @@ titulo-mapa {
     color: #333;
 }
 
-/* ==============================================
-   ESTILOS TABLA DE VARIABLES
-   ============================================== */
-
+/* ================= TABLA DE VARIABLES ================= */
 .seccion-tabla {
     padding-bottom: 80px;
     background: #fff;
@@ -422,7 +410,6 @@ titulo-mapa {
     font-weight: 800;
 }
 
-/* Leyenda de colores */
 .leyenda-tabla {
     display: flex;
     flex-wrap: wrap;
@@ -432,7 +419,7 @@ titulo-mapa {
     padding: 15px;
     background: #f9f9f9;
     border-radius: 10px;
-    display: inline-flex; /* Para que se ajuste al contenido */
+    display: inline-flex;
 }
 
 .item-leyenda {
@@ -450,13 +437,12 @@ titulo-mapa {
     border: 1px solid #ccc;
 }
 
-/* Colores de leyenda */
-.color1 { background: #ccffff; }
-.color2 { background: #fff9b3; }
-.color3 { background: lightcoral; }
-.color4 { background: #b3ffda; }
+/* Colores de leyenda y tabla */
+.color1, #tablaVariables tbody tr:nth-child(-n+15) { background-color: #ccffff; }
+.color2, #tablaVariables tbody tr:nth-child(n+16):nth-child(-n+26) { background-color: #fff9b3; }
+.color3, #tablaVariables tbody tr:nth-child(n+27):nth-child(-n+38) { background-color: lightcoral; }
+.color4, #tablaVariables tbody tr:nth-child(n+39) { background-color: #b3ffda; }
 
-/* Buscador y Filtros */
 #buscador-container {
     margin-bottom: 20px;
     display: flex;
@@ -473,15 +459,14 @@ titulo-mapa {
 
 #filtroTexto { width: 300px; }
 
-/* La Tabla en sí */
 #tabla-contenedor {
     width: 95%;
     max-width: 1400px;
     margin: auto;
-    overflow-x: auto; /* Scroll horizontal si es muy ancha */
+    overflow-x: auto;
     border-radius: 10px;
     box-shadow: 0 0 15px rgba(0,0,0,0.1);
-    max-height: 600px; /* Scroll vertical */
+    max-height: 600px;
     overflow-y: auto;
 }
 
@@ -489,11 +474,11 @@ table {
     width: 100%;
     border-collapse: collapse;
     font-size: 13px;
-    min-width: 1000px; /* Asegura ancho mínimo */
+    min-width: 1000px;
 }
 
 th {
-    background: #2a7173; /* Tu color principal */
+    background: #2a7173;
     color: white;
     padding: 15px;
     position: sticky;
@@ -509,54 +494,22 @@ td {
     color: #000;
 }
 
-/* COLORES DE LAS FILAS (Lógica Nth-child) */
-/* Nota: Ajusta los números si agregas o quitas filas */
-
-/* 1. Celestes (Primeras 15 filas) */
-#tablaVariables tbody tr:nth-child(-n+15) { 
-    background-color: #ccffff; 
-}
-
-/* 2. Amarillos (Siguientes 11 filas aprox) */
-#tablaVariables tbody tr:nth-child(n+16):nth-child(-n+26) {
-    background-color: #fff9b3;
-}
-
-/* 3. Coral (Siguientes 12 filas aprox) */
-#tablaVariables tbody tr:nth-child(n+27):nth-child(-n+38) {
-    background-color: lightcoral;
-}
-
-/* 4. Verdes (El resto) */
-#tablaVariables tbody tr:nth-child(n+39) {
-    background-color: #b3ffda;
-}
-
-/* Hover Global */
 #tablaVariables tbody tr:hover td {
     background-color: #ffa500 !important;
     color: white !important;
     cursor: default;
 }
 
-@media (max-width: 800px) {
-    .contenedor-flex-descriptiva { flex-direction: column; align-items: center; }
-    .derecha-desc { width: 200px; height: 200px; }
-    #filtroTexto { width: 100%; }
-}
-/* ==============================================
-   GALERÍA VARIABLES "DAME BONITO"
-   ============================================== */
-
+/* ================= GALERÍA VARIABLES "DAME BONITO" ================= */
 .seccion-galeria {
     padding: 60px 20px;
     text-align: center;
-    background: linear-gradient(to bottom, #ffffff 0%, #f4f8f8 100%); /* Fondo degradado sutil */
+    background: linear-gradient(to bottom, #ffffff 0%, #f4f8f8 100%);
 }
 
 .titulo-galeria {
     font-size: 42px;
-    color: #2a7173; /* Tu verde oscuro */
+    color: #2a7173;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -564,11 +517,9 @@ td {
     text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-.mt-grande { margin-top: 80px; } /* Separador para el segundo bloque */
+.mt-grande { margin-top: 80px; }
 
-.grupo-variables {
-    margin-bottom: 40px;
-}
+.grupo-variables { margin-bottom: 40px; }
 
 .subtitulo-galeria {
     font-size: 26px;
@@ -576,167 +527,116 @@ td {
     font-weight: 600;
     margin-bottom: 25px;
     display: inline-block;
-    border-bottom: 3px solid #4DB6AC; /* Subrayado color menta */
+    border-bottom: 3px solid #4DB6AC;
     padding-bottom: 5px;
 }
 
-/* --- LA REJILLA (GRID) --- */
 .grid-cards {
     display: grid;
-    /* Esto crea columnas automáticas de mínimo 240px */
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
     gap: 30px;
     max-width: 1300px;
     margin: 0 auto;
 }
 
-/* --- LA TARJETA (CARD) --- */
 .card-variable {
     position: relative;
-    height: 220px; /* Altura de la tarjeta */
-    border-radius: 20px; /* Bordes muy redondos como tu imagen */
+    height: 220px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.08); /* Sombra suave normal */
-    background: #000; /* Fondo negro por si falla la imagen */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    background: #000;
     cursor: pointer;
-    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1); /* Transición elástica */
-    border: 4px solid #fff; /* Marco blanco tipo foto */
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 4px solid #fff;
 }
 
-/* Imagen de fondo */
-.card-img {
-    width: 100%;
-    height: 100%;
-}
-
+.card-img { width: 100%; height: 100%; }
 .card-img img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.6s ease; /* Zoom lento de la imagen */
+    transition: transform 0.6s ease;
 }
 
-/* Etiqueta de Texto (Abajo) */
 .card-texto {
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.85); /* Negro casi sólido */
+    background: rgba(0, 0, 0, 0.85);
     color: #fff;
     padding: 12px;
     font-size: 15px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
-    backdrop-filter: blur(4px); /* Efecto borroso detrás */
+    backdrop-filter: blur(4px);
     border-top: 1px solid rgba(255,255,255,0.2);
     transform: translateY(0);
     transition: background 0.3s;
 }
 
-/* --- EFECTO PULSO Y GLOW (HOVER) --- */
 .card-variable:hover {
-    transform: translateY(-10px) scale(1.02); /* Sube y crece un pelín */
-    
-    /* El Glow Mágico: Sombra color menta brillante */
+    transform: translateY(-10px) scale(1.02);
     box-shadow: 0 15px 35px rgba(77, 182, 172, 0.5); 
-    border-color: #4DB6AC; /* El borde blanco se vuelve menta */
+    border-color: #4DB6AC;
 }
 
 .card-variable:hover .card-img img {
-    transform: scale(1.15); /* Zoom a la foto */
-    filter: brightness(1.1); /* Un poco más de brillo */
+    transform: scale(1.15);
+    filter: brightness(1.1);
 }
 
 .card-variable:hover .card-texto {
-    background: #2a7173; /* La etiqueta cambia a tu verde corporativo */
-}
-/* ================= EFECTO DE ENTRADA GLOBAL ================= */
-.efecto-entrada {
-    opacity: 0;
-    transform: translateY(50px); /* Empieza más abajo */
-    transition: opacity 1s ease-out, transform 1s ease-out;
+    background: #2a7173;
 }
 
-.efecto-entrada.visible {
-    opacity: 1;
-    transform: translateY(0); /* Sube a su sitio */
-}
-/* ================= TÍTULOS DE VIDEO (ANIMADOS) ================= */
-.titulo-video h1 {
-    font-size: 50px;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
-    z-index: 1;
-    position: relative;
-    text-align: center;
-
-    /* ANIMACIÓN AUTOMÁTICA (Sin esperar scroll) */
-    /* Usa la misma animación 'slideInUp' que creamos para el mapa */
-    animation: slideInUp 1s ease-out both;
-}
-
-/* Aseguramos que la animación exista por si acaso */
-@keyframes slideInUp {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-/* ==============================================
-   ESTILOS DEL FOOTER (PREMIUM)
-   ============================================== */
-
+/* ================= FOOTER ================= */
 footer {
-    background: #2c2c2c; /* Gris oscuro elegante */
+    background: #2c2c2c;
     padding: 60px 0 30px 0;
     margin: auto;
     overflow: hidden;
     color: #fff;
     position: relative;
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.1); /* Sombra superior sutil */
+    box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
 }
 
 .contenedor-footer {
     display: flex;
     width: 90%;
     max-width: 1200px;
-    justify-content: space-evenly; /* Distribuye el espacio equitativamente */
+    justify-content: space-evenly;
     margin: auto;
     padding-bottom: 50px;
-    border-bottom: 1px solid #555; /* Línea separadora sutil */
-    flex-wrap: wrap; /* Adaptable a móviles */
+    border-bottom: 1px solid #555;
+    flex-wrap: wrap;
 }
 
 .content-foo {
     text-align: center;
     margin-bottom: 20px;
-    min-width: 200px; /* Ancho mínimo para que no se aplasten */
+    min-width: 200px;
 }
 
 .content-foo h4 {
     color: #fff;
-    border-bottom: 3px solid #4DB6AC; /* Tu color verde azulado */
+    border-bottom: 3px solid #4DB6AC;
     padding-bottom: 5px;
     margin-bottom: 15px;
-    display: inline-block; /* Para que la línea mida lo mismo que el texto */
+    display: inline-block;
     font-size: 18px;
     font-weight: 700;
     letter-spacing: 1px;
 }
 
 .content-foo p {
-    color: #ccc; /* Texto gris claro para no cansar la vista */
+    color: #ccc;
     margin-bottom: 8px;
     font-size: 15px;
 }
 
-/* --- ÍCONOS DE REDES SOCIALES --- */
 .iconos-container {
     display: flex;
     justify-content: center;
@@ -747,18 +647,17 @@ footer {
 .icono-red img {
     width: 35px;
     height: 35px;
-    filter: invert(1); /* Vuelve blancos los iconos si son negros originalmente */
+    filter: invert(1);
     transition: all 0.3s ease;
     opacity: 0.8;
 }
 
 .icono-red img:hover {
-    transform: translateY(-5px) scale(1.1); /* Sube y crece */
-    filter: invert(0) sepia(1) saturate(5) hue-rotate(120deg); /* Truco para volverlo verde al pasar el mouse (opcional) */
+    transform: translateY(-5px) scale(1.1);
+    filter: invert(0) sepia(1) saturate(5) hue-rotate(120deg);
     opacity: 1;
 }
 
-/* --- COPYRIGHT FINAL --- */
 .titulo-final {
     text-align: center;
     font-size: 14px;
@@ -767,14 +666,163 @@ footer {
     font-weight: 400;
 }
 
-/* --- RESPONSIVE --- */
-@media (max-width: 600px) {
+/* ================= RESPONSIVO GENERAL ================= */
+@media (max-width: 800px) {
+    nav { flex-wrap: wrap; }
+    
+    .contenedor-sobre-nosotros, 
+    .mapa-ubicacion, 
+    .contenedor-flex-descriptiva,
     .contenedor-footer {
         flex-direction: column;
         align-items: center;
+        text-align: center;
     }
-    
-    .content-foo {
-        margin-bottom: 40px;
+
+    .imagen-about-us, 
+    .contenido-textos, 
+    .lado-izquierdo, 
+    .lado-derecho {
+        width: 100%;
     }
+
+    .titulo-mapa { font-size: 40px; }
+    .lado-derecho { margin-top: 30px; }
+    .derecha-desc { width: 200px; height: 200px; }
+    #filtroTexto { width: 100%; }
+    .content-foo { margin-bottom: 40px; }
+}
+
+/* ================= CHATBOT ESTILOS ================= */
+/* Si usas el Bot Manual (Plan B), este CSS es necesario. 
+   Si usas Chatbase (Script), esto no estorba pero no se usa. */
+.chat-toggler {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #2a7173;
+    border: none;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    transition: transform 0.3s;
+    z-index: 9999;
+    display: flex; justify-content: center; align-items: center;
+}
+.chat-toggler:hover { transform: scale(1.1); background: #4DB6AC; }
+
+.chatbot-container {
+    position: fixed;
+    bottom: 100px;
+    right: 30px;
+    width: 320px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.2);
+    z-index: 9999;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    font-size: 14px;
+}
+/* ================= MODAL DE AVISO ================= */
+
+/* Fondo oscuro semitransparente que cubre toda la pantalla */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Oscuro para resaltar el modal */
+    display: none; /* Oculto por defecto, JS lo activa */
+    justify-content: center;
+    align-items: center;
+    z-index: 99999; /* Por encima de TODO */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* La caja blanca del modal */
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px; /* Ancho máximo elegante */
+    box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+    text-align: center;
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+/* Clases para activar la animación */
+.modal-overlay.mostrar {
+    display: flex;
+    opacity: 1;
+}
+
+.modal-overlay.mostrar .modal-content {
+    transform: translateY(0);
+}
+
+/* Cabecera con icono y título */
+.modal-header {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.modal-title {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #2a7173; /* Tu color corporativo */
+    font-weight: 700;
+}
+
+/* Botón de cerrar (X) */
+.close-modal-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.close-modal-btn:hover {
+    color: #2a7173;
+}
+
+/* Texto del cuerpo */
+.modal-body p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+/* Botón principal "Entendido" */
+.btn-modal {
+    background-color: #4DB6AC; /* Color menta */
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-modal:hover {
+    background-color: #2a7173; /* Se oscurece al pasar el mouse */
+    transform: translateY(-2px);
 }

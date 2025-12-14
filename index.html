@@ -10,6 +10,21 @@
     <link rel="stylesheet" href="estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
 </head>
+<div id="modalAviso" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#4DB6AC" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+                <h2 class="modal-title">Importante</h2>
+                <span class="close-modal-btn">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Este proyecto tiene un carácter exclusivamente académico y se encuentra en continuo desarrollo. Los datos y análisis presentados se utilizan únicamente con fines educativos y no deben considerarse como asesoramiento profesional.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="btnEntendido" class="btn-modal">Entendido</button>
+            </div>
+        </div>
+    </div>
 <body>
 
     <header id="main-header">
@@ -42,20 +57,20 @@
                     <div class="contenido-textos">
                         <h3><span>1</span> Planteamiento del Problema</h3>
                         <p>
-                            Aplicar herramientas estadísticas y de Machine Learning para analizar actividades de exploración
-                            y/o explotación de hidrocarburos en Brasil mediante herramientas computacionales.
+                            La información sobre la exploración y explotación de hidrocarburos en Brasil es dispersa, lo que dificulta entender su evolución espacial y temporal. Se requiere un análisis estadístico que organice los datos históricos (1940–2018) para identificar patrones y apoyar la planificación energética.
                         </p>
 
                         <a href="https://www.kaggle.com/datasets/dtommasini/oil-gas-wells-brazil" target="_blank" class="dataset-box">Dataset</a>
 
                         <h3><span>2</span> Objetivo General</h3>
                         <p>
-                            Aplicar herramientas estadísticas y de Machine Learning para analizar actividades de exploración...
+                            Aplicar herramientas estadísticas y de Machine Learning para analizar actividades de exploración y/o explotación de hidrocarburos en Brasil mediante herramientas computacionales
                         </p>
 
                         <h3><span>3</span> Objetivo Específico</h3>
-                        <p><strong>1.</strong> Conocer la situación actual sobre la exploración...</p>
-                        <p><strong>2.</strong> Emplear un modelo de probabilidad...</p>
+                        <p><strong>1.</strong>Conocer la situación actual sobre la exploración y explotación de hidrocarburos en Brasil, a través de sus características más importantes y medidas estadísticas</p>
+                        <p><strong>2.</strong>Emplear un modelo de probabilidad para estables conclusiones de la exploración y explotación de hidrocarburos en Brasil a partir de los resultados de la muestra.</p>
+                        <p><strong>3.</strong>Deducir relaciones entre variables de la exploración y explotación de hidrocarburos en Brasil con el fin de realizar estimaciones.</p>
                     </div>
                 </div>
             </section>
@@ -356,5 +371,11 @@
 
     <script src="navegacion.js"></script>
     <script src="observer.js"></script>
+    <script src="modal.js"></script>
+
+    <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="0KvCL-4xC7yfIElMOhv1h";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+
 </body>
 </html>
