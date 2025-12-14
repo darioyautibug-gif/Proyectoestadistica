@@ -9,6 +9,8 @@
     
     <link rel="stylesheet" href="estilos.css">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#2a7173">
 </head>
 <div id="modalAviso" class="modal-overlay">
         <div class="modal-content">
@@ -51,7 +53,7 @@
             <section id="banner-video">
                 <div class="capa-oscura"></div>
                 <video id="videoPrincipal" muted autoplay loop>
-                    <source src="video/606824-cities-city-3840x2160_RGiVdQ2Y.mp4" type="video/mp4">
+                    <source src="video/606824-cities-city-3840x2160_RGiVdQ2Y (6).mp4" type="video/mp4">
                 </video>
                 <div class="titulo-video">
                     <h1>Proyecto de Estadística</h1>
@@ -103,41 +105,46 @@
     <div class="banner-video-general">
         <div class="capa-oscura"></div>
         <video id="videoDescriptiva" muted loop>
-            <source src="video/606824-cities-city-3840x2160_RGiVdQ2Y.mp4" type="video/mp4">
+            <source src="video/606824-cities-city-3840x2160_RGiVdQ2Y (6).mp4" type="video/mp4">
         </video>
         <div class="titulo-video">
-            <h1 class=>Estadística Descriptiva</h1>
-        </div>
+        <h1>Estadística Descriptiva</h1>
     </div>
+    </div> 
 
-    <div class="contenedor contenedor-flex-descriptiva">
+    <div class="fondo-gris-ancho">
         
-        <div class="izquierda-desc">
-            <h1 class="titulo-seccion-desc">📊 Conceptos Básicos</h1>
+        <div class="contenedor contenedor-flex-descriptiva-layout">
+        
+            <div class="izquierda-desc">
+                <h1 class="titulo-seccion-desc">📊 Conceptos Básicos</h1>
 
-            <div class="opcion-desc" onclick="toggleInfo('poblacion')">🌎 Población</div>
-            <div id="poblacion" class="info-desc">
-                <b>Textual:</b> Todas las porciones de subsuelo del territorio de Brasil susceptibles de actividades de exploración y/o explotación de hidrocarburos.<br><br>
-                <b>Simbólico:</b>
-                <div class="simbolico">U = {x / x ∈ porciones de subsuelo ^ País(x) = “Brasil” ^ Apto(x) = "Hidrocarburos"}</div>
+                <div class="opcion-desc" onclick="toggleInfo('poblacion')">🌎 Población</div>
+                <div id="poblacion" class="info-desc">
+                    <b>Textual:</b> Todas las porciones de subsuelo del territorio de Brasil susceptibles de actividades de exploración y/o explotación de hidrocarburos.<br><br>
+                    <b>Simbólico:</b>
+                    <div class="simbolico">U = {x / x ∈ porciones de subsuelo ^ País(x) = “Brasil” ^ Apto(x) = "Hidrocarburos"}</div>
+                </div>
+
+                <div class="opcion-desc" onclick="toggleInfo('individuo')">🛢️ Individuo</div>
+                <div id="individuo" class="info-desc">
+                    <b>Textual:</b> Cada porción de subsuelo ubicada en Brasil que cumple criterios de aptitud para hidrocarburos.<br><br>
+                    <b>Simbólico:</b>
+                    <div class="simbolico">Xᵢ = 1, 2, 3, …, n<br>n = 29,575</div>
+                </div>
+
+                <div class="opcion-desc" onclick="toggleInfo('muestra')">🧮 Muestra</div>
+                <div id="muestra" class="info-desc">
+                    <b>Textual:</b> Conjunto de todas las porciones de subsuelo en Brasil donde se realizaron actividades de exploración o explotación desde 1940 hasta 2018.<br><br>
+                    <b>Simbólico:</b>
+                    <div class="simbolico">M = { x | x ∈ Porciones ∧ pais(x) = "Brasil" ^ Apto(x) = "Hidrocarburos", 1940 ≤ año(x) ≤ 2018 }</div>
+                </div>
             </div>
 
-            <div class="opcion-desc" onclick="toggleInfo('individuo')">🛢️ Individuo</div>
-            <div id="individuo" class="info-desc">
-                <b>Textual:</b> Cada porción de subsuelo ubicada en Brasil que cumple criterios de aptitud para hidrocarburos.<br><br>
-                <b>Simbólico:</b>
-                <div class="simbolico">Xᵢ = 1, 2, 3, …, n<br>n = 29,575</div>
-            </div>
-
-            <div class="opcion-desc" onclick="toggleInfo('muestra')">🧮 Muestra</div>
-            <div id="muestra" class="info-desc">
-                <b>Textual:</b> Conjunto de todas las porciones de subsuelo en Brasil donde se realizaron actividades de exploración o explotación desde 1940 hasta 2018.<br><br>
-                <b>Simbólico:</b>
-                <div class="simbolico">M = { x | x ∈ Porciones ∧ pais(x) = "Brasil" ^ Apto(x) = "Hidrocarburos", 1940 ≤ año(x) ≤ 2018 }</div>
+            <div class="derecha-desc">
+                <img src="img/arenas-petroliferas-en-canada.jpg" alt="Imagen Descriptiva">
             </div>
         </div>
-
-        <div class="derecha-desc"></div>
     </div>
 
     <div class="contenedor seccion-tabla">
@@ -238,95 +245,120 @@
         </tbody>
             </table>        
         </div>
-        <div class="contenedor seccion-galeria">
+                
+                <div class="contenedor seccion-galeria">
 
-    <h1 class="titulo-galeria">Variables Cualitativas</h1>
-    
-    <div class="grupo-variables">
-        <h3 class="subtitulo-galeria">Nominales</h3>
-        <div class="grid-cards">
-            <div class="card-variable">
-                <div class="card-img"><img src="img/ejemplo-pozo.jpg" alt="Pozo"></div>
-                <div class="card-texto">POZO</div>
-            </div>
-            <div class="card-variable">
-                <div class="card-img"><img src="img/ejemplo-operador.jpg" alt="Operador"></div>
-                <div class="card-texto">OPERADOR</div>
-            </div>
-            <div class="card-variable">
-                <div class="card-img"><img src="img/ejemplo-cuenca.jpg" alt="Cuenca"></div>
-                <div class="card-texto">CUENCA</div>
-            </div>
-            <div class="card-variable">
-                <div class="card-img"><img src="img/ejemplo-terramar.jpg" alt="Tierra/Mar"></div>
-                <div class="card-texto">TIERRA / MAR</div>
-            </div>
-        </div>
-    </div>
+                    <h1 class="titulo-galeria">Variables Cualitativas</h1>
+                    
+                    <div class="grupo-variables">
+                        <h3 class="subtitulo-galeria">Nominales</h3>
+                        <div class="grid-cards">
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/ejemplo-pozo.jpg" alt="Pozo"></div>
+                                <div class="card-texto">POZO</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/ejemplo-operador.jpg" alt="Operador"></div>
+                                <div class="card-texto">OPERADOR</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/ejemplo-cuenca.jpg" alt="Cuenca"></div>
+                                <div class="card-texto">CUENCA</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/ejemplo-terramar.jpg" alt="Tierra/Mar"></div>
+                                <div class="card-texto">TIERRA / MAR</div>
+                            </a>
+                        </div>
+                    </div>
 
-    <div class="grupo-variables">
-        <h3 class="subtitulo-galeria">Ordinales</h3>
-        <div class="grid-cards">
-            <div class="card-variable">
-                <div class="card-img"><img src="img/placeholder1.jpg" alt="Var"></div>
-                <div class="card-texto">ORDINAL 1</div>
-            </div>
-            <div class="card-variable">
-                <div class="card-img"><img src="img/placeholder1.jpg" alt="Var"></div>
-                <div class="card-texto">ORDINAL 2</div>
-            </div>
-            <div class="card-variable">
-                <div class="card-img"><img src="img/placeholder1.jpg" alt="Var"></div>
-                <div class="card-texto">ORDINAL 3</div>
-            </div>
-            <div class="card-variable">
-                <div class="card-img"><img src="img/placeholder1.jpg" alt="Var"></div>
-                <div class="card-texto">ORDINAL 4</div>
-            </div>
-        </div>
-    </div>
+                    <div class="grupo-variables">
+                        <h3 class="subtitulo-galeria">Ordinales</h3>
+                        <div class="grid-cards">
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder1.jpg" alt="Var"></div>
+                                <div class="card-texto">ORDINAL 1</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder1.jpg" alt="Var"></div>
+                                <div class="card-texto">ORDINAL 2</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder1.jpg" alt="Var"></div>
+                                <div class="card-texto">ORDINAL 3</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder1.jpg" alt="Var"></div>
+                                <div class="card-texto">ORDINAL 4</div>
+                            </a>
+                        </div>
+                    </div>
 
+                    <h1 class="titulo-galeria mt-grande">Variables Cuantitativas</h1>
 
-    <h1 class="titulo-galeria mt-grande">Variables Cuantitativas</h1>
+                    <div class="grupo-variables">
+                        <h3 class="subtitulo-galeria">Discretas</h3>
+                        <div class="grid-cards">
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder2.jpg" alt="Var"></div>
+                                <div class="card-texto">INICIO (Fecha)</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder2.jpg" alt="Var"></div>
+                                <div class="card-texto">TÉRMINO (Fecha)</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder2.jpg" alt="Var"></div>
+                                <div class="card-texto">CATASTRO</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder2.jpg" alt="Var"></div>
+                                <div class="card-texto">ACTUALIZACIÓN</div>
+                            </a>
+                        </div>
+                    </div>
 
-    <div class="grupo-variables">
-        <h3 class="subtitulo-galeria">Discretas</h3>
-        <div class="grid-cards">
-            <div class="card-variable">
-                <div class="card-img"><img src="img/placeholder2.jpg" alt="Var"></div>
-                <div class="card-texto">INICIO (Fecha)</div>
+                    <div class="grupo-variables">
+                        <h3 class="subtitulo-galeria">Continuas</h3>
+                        <div class="grid-cards">
+                            <a href="https://rpubs.com/Denis_Alexander/profundidad-vertic4l" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/perforacion-direccional.webp"></div>
+                                <div class="card-texto">PROF. VERTICAL</div>
+                            </a>
+                            <a href="https://rpubs.com/Denis_Alexander/1380632" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/SONDADORA.jpg"></div>
+                                <div class="card-texto">PROF. SONDADORA</div>
+                            </a>
+                            <a href="https://rpubs.com/Denis_Alexander/eleccion-altiimetrica" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/correlacion-registros.webp"></div>
+                                <div class="card-texto">COTA ALIMETRICA</div>
+                            </a>
+                            <a href="https://rpubs.com/Denis_Alexander/lamina-agua" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/laminaagua.jpg"></div>
+                                <div class="card-texto">LAMINA DE AGUA</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder3.jpg"></div>
+                                <div class="card-texto">MESA ROTATORIA</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder3.jpg"></div>
+                                <div class="card-texto">COTA ALTIMÉTRICA</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder3.jpg"></div>
+                                <div class="card-texto">LÁMINA DE AGUA</div>
+                            </a>
+                            <a href="#" class="card-variable" target="_blank">
+                                <div class="card-img"><img src="img/placeholder3.jpg"></div>
+                                <div class="card-texto">PROF. SONDA</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="card-variable">
-                <div class="card-img"><img src="img/placeholder2.jpg" alt="Var"></div>
-                <div class="card-texto">TÉRMINO (Fecha)</div>
-            </div>
-            <div class="card-variable">
-                <div class="card-img"><img src="img/placeholder2.jpg" alt="Var"></div>
-                <div class="card-texto">CATASTRO</div>
-            </div>
-            <div class="card-variable">
-                <div class="card-img"><img src="img/placeholder2.jpg" alt="Var"></div>
-                <div class="card-texto">ACTUALIZACIÓN</div>
-            </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="grupo-variables">
-        <h3 class="subtitulo-galeria">Continuas</h3>
-        <div class="grid-cards">
-            <div class="card-variable"><div class="card-img"><img src="img/placeholder3.jpg"></div><div class="card-texto">LATITUD</div></div>
-            <div class="card-variable"><div class="card-img"><img src="img/placeholder3.jpg"></div><div class="card-texto">LONGITUD</div></div>
-            <div class="card-variable"><div class="card-img"><img src="img/placeholder3.jpg"></div><div class="card-texto">PROF. VERTICAL</div></div>
-            <div class="card-variable"><div class="card-img"><img src="img/placeholder3.jpg"></div><div class="card-texto">PROF. MEDIDA</div></div>
-            <div class="card-variable"><div class="card-img"><img src="img/placeholder3.jpg"></div><div class="card-texto">MESA ROTATORIA</div></div>
-            <div class="card-variable"><div class="card-img"><img src="img/placeholder3.jpg"></div><div class="card-texto">COTA ALTIMÉTRICA</div></div>
-            <div class="card-variable"><div class="card-img"><img src="img/placeholder3.jpg"></div><div class="card-texto">LÁMINA DE AGUA</div></div>
-            <div class="card-variable"><div class="card-img"><img src="img/placeholder3.jpg"></div><div class="card-texto">PROF. SONDA</div></div>
-        </div>
-    </div>
-</div>
-    </div>
-</section>
         <section id="vista-inferencial" class="seccion-interna oculto">
             <div class="contenedor">
                 <h1>Estadística Inferencial</h1>
@@ -342,69 +374,63 @@
         </section>
 
         <section id="vista-herramientas" class="seccion-interna oculto">
-    <div class="contenedor">
-        <h1 class="titulo-seccion-mas">Herramientas Tecnológicas</h1>
-        <p>Softwares</p>
-        <div class="grid-cards">
-            <div class="card-variable" style="height: 150px;">
-                <div class="card-texto" style="position:relative; height:100%; display:flex; align-items:center; justify-content:center; background:#2a7173;">
-                    rstudio
+            <div class="contenedor">
+                <h1 class="titulo-seccion-mas">Herramientas Tecnológicas</h1>
+                <p>Softwares</p>
+                <div class="grid-cards">
+                    <div class="card-variable" style="height: 150px;">
+                        <div class="card-texto" style="position:relative; height:100%; display:flex; align-items:center; justify-content:center; background:#2a7173;">
+                            rstudio
+                        </div>
+                    </div>
+                    <div class="card-variable" style="height: 150px;">
+                        <div class="card-texto" style="position:relative; height:100%; display:flex; align-items:center; justify-content:center; background:#4DB6AC;">
+                            Por ahi
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="card-variable" style="height: 150px;">
-                <div class="card-texto" style="position:relative; height:100%; display:flex; align-items:center; justify-content:center; background:#4DB6AC;">
-                    Por ahi
+        </section>
+
+        <section id="vista-conclusiones" class="seccion-interna oculto">
+            <div class="contenedor">
+                <h1 class="titulo-seccion-mas">Conclusiones Finales</h1>
+                <ul class="lista-conclusiones" style="text-align: left; max-width: 800px; margin: auto; font-size: 18px;">
+                    <li>en construccion</li>
+                    <li>en construccion</li>
+                    <li>enconstrcucion </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="vista-nosotros" class="seccion-interna oculto">
+            <div class="contenedor">
+                <h1 class="titulo-seccion-mas">Curriculum de todos los Integrantes</h1>
+                <div class="contenedor-sobre-nosotros-grid">
+                    <div class="caja-mas miembro-equipo">
+                        <h3>Elkin Yautibug</h3>
+                        <p>Ingeniero</p>
+                    </div>
+                    <div class="caja-mas miembro-equipo">
+                        <h3>Anahi Macias</h3>
+                        <p>Ingeniería</p>
+                    </div>
+                    <div class="caja-mas miembro-equipo">
+                        <h3>Denis</h3>
+                        <p>Ingeniero</p>
+                    </div>
+                    <div class="caja-mas miembro-equipo">
+                        <h3>Benjamin</h3>
+                        <p>Ingeniero</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-
-<section id="vista-conclusiones" class="seccion-interna oculto">
-    <div class="contenedor">
-        <h1 class="titulo-seccion-mas">Conclusiones Finales</h1>
-        <ul class="lista-conclusiones" style="text-align: left; max-width: 800px; margin: auto; font-size: 18px;">
-            <li>en construccion</li>
-            <li>en construccion</li>
-            <li>enconstrcucion </li>
-        </ul>
-    </div>
-</section>
-
-<section id="vista-nosotros" class="seccion-interna oculto">
-    <div class="contenedor">
-        <h1 class="titulo-seccion-mas">Curriculum de todos los Integrantes</h1>
-        
-        <div class="contenedor-sobre-nosotros-grid">
-            
-            <div class="caja-mas miembro-equipo">
-                <h3>Elkin Yautibug</h3>
-                <p>Ingeniero</p>
-            </div>
-
-            <div class="caja-mas miembro-equipo">
-                <h3>Anahi Macias</h3>
-                <p>Ingeniería</p>
-            </div>
-            
-            <div class="caja-mas miembro-equipo">
-                <h3>Denis</h3>
-                <p>Ingeniero</p>
-            </div>
-
-            <div class="caja-mas miembro-equipo">
-                <h3>Benjamin</h3>
-                <p>Ingeniero</p>
-            </div>
-
-        </div>
-    </div>
-</section>
+        </section>
 
     </main>
-   <footer>
+
+    <footer>
         <div class="contenedor-footer">
-            
             <div class="content-foo">
                 <h4>Integrantes</h4>
                 <p>Elkin Yautibug</p>
@@ -412,12 +438,10 @@
                 <p>Denis Tercero</p>
                 <p>Benjamin Salazar</p>
             </div>
-
             <div class="content-foo">
                 <h4>Contacto</h4>
                 <p>0962569683</p> <p>Quito, Ecuador</p>
             </div>
-
             <div class="content-foo redes-sociales-footer">
                 <h4>Síguenos</h4>
                 <div class="iconos-container">
@@ -432,19 +456,13 @@
                     </a>
                 </div>
             </div>
-
         </div>
-        
         <h2 class="titulo-final">&copy; 2025 Proyecto de Estadística | FIGEMPA - UCE</h2>
     </footer>
 
     <script src="navegacion.js"></script>
     <script src="observer.js"></script>
     <script src="modal.js"></script>
-
-    <script>
-(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="0KvCL-4xC7yfIElMOhv1h";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
-</script>
 
 </body>
 </html>

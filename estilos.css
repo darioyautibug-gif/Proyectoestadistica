@@ -335,78 +335,157 @@ nav a.activo {
     opacity: 1;
     transform: translateY(0);
 }
+/* ================= ESTADÍSTICA DESCRIPTIVA (LAYOUT LADO A LADO) ================= */
 
-/* ================= ESTADÍSTICA DESCRIPTIVA ================= */
+/* 1. El contenedor padre que ordena los hijos */
 .contenedor-flex-descriptiva {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 40px;
+    display: flex;             /* Activa el modo flexible */
+    align-items: center;       /* Centra verticalmente */
+    justify-content: space-between; /* Separa los elementos a los extremos */
+    gap: 50px;                 /* Espacio entre el texto y la imagen */
     padding: 60px 0;
-    background: #f8f8f8;
-    flex-wrap: wrap;
+    flex-wrap: wrap;           /* Permite que baje en celulares */
 }
 
+/* 2. El lado izquierdo (textos) ocupa el espacio disponible */
 .izquierda-desc {
-    flex: 1;
+    flex: 1; /* Toma el espacio que sobra */
     max-width: 600px;
+    text-align: left; /* Alinea los textos a la izquierda */
 }
 
+/* 3. El lado derecho (CÍRCULO DE IMAGEN) */
+/* ================= CÍRCULO DE IMAGEN PERFECTO ================= */
+
+/* 1. El marco del círculo */
 .derecha-desc {
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    /* Asegúrate de que la imagen exista en tu carpeta */
-    background-image: url('../img/Arenas-petroliferas-en-Canada.jpg'); 
-    background-size: cover;
-    background-position: center;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-    border: 5px solid white;
+    width: 400px;           /* Ancho fijo */
+    height: 400px;          /* Alto fijo (igual al ancho) */
+    
+    border-radius: 50%;     /* ¡ESTO LO HACE REDONDO! */
+    overflow: hidden;       /* MAGIA: Recorta la foto para que no se salga del borde */
+    
+    border: 8px solid #fff; /* Borde blanco grueso */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15); /* Sombra */
+    
+    /* Para centrar la imagen dentro si algo falla */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
+/* 2. La foto en sí */
+.derecha-desc img {
+    width: 100%;            /* Ocupa todo el ancho del círculo */
+    height: 100%;           /* Ocupa todo el alto del círculo */
+    object-fit: cover;      /* MAGIA: Hace zoom automático para no deformarse */
+}
+
+/* 3. Ajuste para celular (hacerlo más pequeño) */
+@media (max-width: 900px) {
+    .derecha-desc {
+        width: 300px;
+        height: 300px;
+    }
+}
+/* RESPONSIVO: En celulares, la imagen se pone arriba o abajo */
+@media (max-width: 900px) {
+    .contenedor-flex-descriptiva {
+        flex-direction: column-reverse; /* Pone la imagen arriba en móvil (opcional) */
+        text-align: center;
+    }
+    .izquierda-desc {
+        text-align: center;
+        width: 100%;
+    }
+    .derecha-desc {
+        width: 300px; /* Un poco más pequeño en celular */
+        height: 300px;
+        margin-bottom: 40px;
+    }
+}
+/* ================= ESTILOS CAJAS DE CONCEPTOS (ACORDEÓN) ================= */
+
+/* 1. La tarjeta del botón (Población, Individuo, Muestra) */
 .opcion-desc {
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 15px 0;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    cursor: pointer;
-    font-weight: bold;
+    background: #ffffff;      /* Fondo blanco */
+    padding: 20px 25px;       /* Espacio interno cómodo */
+    margin-bottom: 15px;      /* Separación entre tarjetas */
+    border-radius: 12px;      /* Bordes redondeados */
+    
+    /* La barra verde a la izquierda */
+    border-left: 6px solid #2a7173; 
+    
+    /* Sombra suave para dar efecto 3D */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    
+    /* Texto y cursor */
+    font-size: 18px;
+    font-weight: 700;         /* Negrita */
     color: #333;
+    cursor: pointer;          /* Manito al pasar el mouse */
+    
+    /* Animación suave */
     transition: all 0.3s ease;
-    border-left: 5px solid #2a7173;
+    
+    /* Para alinear el icono con el texto */
+    display: flex;
+    align-items: center;
+    gap: 15px; 
 }
 
+/* 2. Efecto al pasar el mouse por encima */
 .opcion-desc:hover {
-    background: #2a7173;
-    color: white;
-    transform: translateX(10px);
+    background: #2a7173;      /* Se vuelve verde */
+    color: #ffffff;           /* Letra blanca */
+    transform: translateX(10px); /* Se mueve un poquito a la derecha */
+    box-shadow: 0 8px 20px rgba(42, 113, 115, 0.3);
 }
 
+/* 3. La caja de información oculta (que se abre) */
 .info-desc {
-    display: none;
-    padding: 20px;
-    background: #fff;
-    border-radius: 0 0 10px 10px;
-    margin-top: -10px;
-    margin-bottom: 20px;
-    border: 1px solid #eee;
-    animation: fadeIn 0.4s;
+    display: none;            /* Oculto por defecto */
+    background: #ffffff;
+    padding: 25px;
+    margin-top: -10px;        /* Pegadito a la tarjeta de arriba */
+    margin-bottom: 25px;
+    
+    border-radius: 0 0 12px 12px; /* Solo redondeado abajo */
+    border: 1px solid #e0e0e0;
+    border-left: 6px solid #e0e0e0; /* Continuación visual suave */
+    
+    /* Animación de apertura */
+    animation: fadeInDown 0.4s ease;
 }
 
+/* Clase que activa JS para mostrar */
 .info-desc.mostrar {
     display: block;
 }
 
+/* 4. Estilo para el cuadro de fórmulas matemáticas (Simbólico) */
 .simbolico {
-    background: #f4f4f4;
-    padding: 10px;
-    border-left: 4px solid #444;
-    font-family: monospace;
-    margin-top: 10px;
-    color: #333;
+    background: #f4f8f8;      /* Verde grisáceo muy claro */
+    padding: 15px;
+    margin-top: 15px;
+    border-left: 4px solid #4DB6AC; /* Línea acento */
+    font-family: 'Courier New', monospace; /* Letra tipo código */
+    font-size: 14px;
+    color: #2c3e50;
+    border-radius: 5px;
 }
 
+/* Animación de caída para el texto */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 /* ================= TABLA DE VARIABLES ================= */
 .seccion-tabla {
     padding-bottom: 80px;
@@ -843,6 +922,8 @@ footer {
 .dropdown-container {
     position: relative;
     display: inline-block;
+    padding-bottom: 20px;
+    margin-bottom: -20px;
 }
 
 /* Estilo específico para el botón "Más" */
@@ -864,9 +945,8 @@ footer {
     border-radius: 10px;
     overflow: hidden;
     z-index: 2000;
-    padding: 10px 0;
-    margin-top: 15px; /* Separación del botón */
-    
+    padding: 10px 0; /* Separación del botón */
+    z-index: 9999;
     /* Animación de entrada */
     animation: fadeInUp 0.3s ease;
 }
@@ -960,5 +1040,41 @@ footer {
     .miembro-equipo {
         width: 100%;
         max-width: 400px; /* Un poco más anchas en móvil */
+    }
+}
+/* ================= FONDO DE BORDE A BORDE (ESTADÍSTICA) ================= */
+
+/* 1. ESTA CLASE VA EN LA CAJA NUEVA (PADRE) */
+/* Se encarga solo de pintar el fondo en toda la pantalla */
+.fondo-gris-ancho {
+    width: 100%;             /* Ocupa todo el ancho de la ventana */
+    background-color: #f8f8f8; /* El gris claro */
+    padding: 80px 0;         /* Espacio arriba y abajo para que respire */
+    margin-top: 0;
+    position: relative;      /* Asegura que se pinte bien */
+}
+
+/* 2. ESTA CLASE VA EN LA CAJA INTERNA (HIJA) */
+/* Se encarga de que los textos y la imagen sigan centrados y no se vayan a las orillas */
+.contenedor-flex-descriptiva-layout {
+    display: flex;
+    align-items: center;       /* Centrado vertical */
+    justify-content: space-between; 
+    gap: 50px;                 /* Espacio entre texto e imagen */
+    flex-wrap: wrap;           /* Para móviles */
+    
+    /* IMPORTANTE: Sin background aquí, porque ya lo tiene el padre */
+}
+
+/* 3. AJUSTES RESPONSIVOS (CELULAR) */
+@media (max-width: 900px) {
+    .contenedor-flex-descriptiva-layout {
+        flex-direction: column-reverse; /* Pone la imagen arriba en celular */
+        text-align: center;
+        justify-content: center;
+    }
+    
+    .fondo-gris-ancho {
+        padding: 40px 0; /* Menos espacio en celular */
     }
 }
