@@ -118,7 +118,7 @@ function filtrarTabla() {
     }
 }
 
-// 3. Ordenar Tabla (Click en encabezado)
+// (Click en encabezado)
 function ordenarTabla(n) {
     const tabla = document.getElementById("tablaVariables");
     if (!tabla) return;
