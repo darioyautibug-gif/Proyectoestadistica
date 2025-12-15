@@ -1016,8 +1016,6 @@ footer {
     text-align: center; /* Centramos el texto */
     padding: 30px 20px; /* Un poco menos de padding que las otras cajas */
     
-    /* Opcional: si quieres que tengan un color diferente en el borde superior */
-    /* border-top-color: #FFC107; (Color ámbar por ejemplo) */
 }
 
 /* Estilo para los nombres */
@@ -1036,45 +1034,42 @@ footer {
 
 /* --- RESPONSIVO PARA CELULAR --- */
 @media (max-width: 768px) {
-    /* En celulares, que ocupen el 100% del ancho para quedar una debajo de otra */
     .miembro-equipo {
         width: 100%;
-        max-width: 400px; /* Un poco más anchas en móvil */
+        max-width: 400px; 
     }
 }
 /* ================= FONDO DE BORDE A BORDE (ESTADÍSTICA) ================= */
 
-/* 1. ESTA CLASE VA EN LA CAJA NUEVA (PADRE) */
-/* Se encarga solo de pintar el fondo en toda la pantalla */
+
 .fondo-gris-ancho {
-    width: 100%;             /* Ocupa todo el ancho de la ventana */
-    background-color: #f8f8f8; /* El gris claro */
-    padding: 80px 0;         /* Espacio arriba y abajo para que respire */
+    width: 100%;             
+    background-color: #f8f8f8; 
+    padding: 80px 0;         
     margin-top: 0;
-    position: relative;      /* Asegura que se pinte bien */
+    position: relative;      
 }
 
-/* 2. ESTA CLASE VA EN LA CAJA INTERNA (HIJA) */
-/* Se encarga de que los textos y la imagen sigan centrados y no se vayan a las orillas */
+
 .contenedor-flex-descriptiva-layout {
     display: flex;
-    align-items: center;       /* Centrado vertical */
+    align-items: center;       
     justify-content: space-between; 
-    gap: 50px;                 /* Espacio entre texto e imagen */
-    flex-wrap: wrap;           /* Para móviles */
+    gap: 50px;                 
+    flex-wrap: wrap;           
     
-    /* IMPORTANTE: Sin background aquí, porque ya lo tiene el padre */
+    
 }
 
 /* 3. AJUSTES RESPONSIVOS (CELULAR) */
 @media (max-width: 900px) {
     .contenedor-flex-descriptiva-layout {
-        flex-direction: column-reverse; /* Pone la imagen arriba en celular */
+        flex-direction: column-reverse; 
         text-align: center;
         justify-content: center;
     }
     
     .fondo-gris-ancho {
-        padding: 40px 0; /* Menos espacio en celular */
+        padding: 40px 0; 
     }
 }
