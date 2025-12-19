@@ -116,7 +116,7 @@ nav a.activo {
 
 /* ================= TÍTULOS DE VIDEO (ANIMADOS) ================= */
 .titulo-video h1 {
-    font-size: 50px;
+    font-size: 80px;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
     z-index: 1;
@@ -776,16 +776,13 @@ footer {
         width: 100%;
     }
 
-    .titulo-mapa { font-size: 40px; }
+    .titulo-mapa { font-size: 100px; }
     .lado-derecho { margin-top: 30px; }
     .derecha-desc { width: 200px; height: 200px; }
     #filtroTexto { width: 100%; }
     .content-foo { margin-bottom: 40px; }
 }
 
-/* ================= CHATBOT ESTILOS ================= */
-/* Si usas el Bot Manual (Plan B), este CSS es necesario. 
-   Si usas Chatbase (Script), esto no estorba pero no se usa. */
 .chat-toggler {
     position: fixed;
     bottom: 30px;
@@ -1072,4 +1069,65 @@ footer {
     .fondo-gris-ancho {
         padding: 40px 0; 
     }
+}
+/* --- ESTILOS SOBRE NOSOTROS (GRID Y TARJETAS) --- */
+
+.contenedor-sobre-nosotros-grid {
+    display: grid;
+    /* Esto hace que se adapten automáticamente (responsive) */
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+    gap: 30px; /* Espacio entre tarjetas */
+    padding: 20px 0;
+}
+
+.miembro-equipo {
+    background-color: #fff; /* Fondo blanco */
+    border-radius: 15px;
+    padding: 30px 20px;
+    text-align: center;
+    text-decoration: none; /* Quita el subrayado azul feo de los links */
+    color: #333;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1); /* Sombra suave */
+    transition: all 0.3s ease; /* Suaviza la animación */
+    border: 1px solid #eee;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Efecto Hover (Al pasar el mouse) */
+.miembro-equipo:hover {
+    transform: translateY(-10px); /* Se mueve hacia arriba */
+    box-shadow: 0 15px 30px rgba(42, 113, 115, 0.3); /* Sombra verde */
+    border-color: #2a7173;
+}
+
+.miembro-equipo h3 {
+    margin: 15px 0 5px 0;
+    color: #2a7173;
+    font-size: 1.2rem;
+}
+
+.miembro-equipo p {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.icono-cv {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.ver-pdf {
+    font-size: 0.9rem;
+    color: #2a7173;
+    font-weight: bold;
+    opacity: 0; /* Oculto normalmente */
+    transition: opacity 0.3s;
+}
+
+/* Que aparezca el texto "Ver PDF" al pasar el mouse */
+.miembro-equipo:hover .ver-pdf {
+    opacity: 1;
 }
